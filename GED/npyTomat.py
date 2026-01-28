@@ -1,32 +1,22 @@
-#%%
+## Convert the .npy EEG files to .mat files
 import numpy as np
 from scipy.io import savemat
+import scipy.io as sio
+import os
+
 
 def npy_to_mat(npy_file, mat_file):
     data = np.load(npy_file,allow_pickle=True).item()  # Load the .npy file
     savemat(mat_file, {'data': data})  # Save to .mat file
-#%%
-# Example usage
-#npy_to_mat('G:\Resting state\sub-01\sub-01\ses-03\eeg_resting_state_1.npy', 'G:\Resting state\sub-01\sub-01\ses-03')
-npy_to_mat('G:\Resting state\sub-01\sub-01\ses-04\eeg_resting_state_1.npy', 'G:\Resting state\sub-01\sub-01\ses-04')
-npy_to_mat('G:\Resting state\sub-02\sub-02\ses-02\eeg_resting_state_1.npy', 'G:\Resting state\sub-02\sub-02\ses-02')
-npy_to_mat('G:\Resting state\sub-02\sub-02\ses-03\eeg_resting_state_1.npy', 'G:\Resting state\sub-02\sub-02\ses-03')
-npy_to_mat('G:\Resting state\sub-02\sub-02\ses-04\eeg_resting_state_1.npy', 'G:\Resting state\sub-02\sub-02\ses-04')
-npy_to_mat('G:\Resting state\sub-03\sub-03\ses-02\eeg_resting_state_1.npy', 'G:\Resting state\sub-03\sub-03\ses-02')
-npy_to_mat('G:\Resting state\sub-03\sub-03\ses-03\eeg_resting_state_1.npy', 'G:\Resting state\sub-03\sub-03\ses-03')
-#%%
-npy_to_mat('G:\Resting state\sub-10\sub-10\ses-01\eeg_resting_state_1.npy', 'G:\Resting state\sub-10\sub-10\ses-01')
-npy_to_mat('G:\Resting state\sub-10\sub-10\ses-02\eeg_resting_state_1.npy', 'G:\Resting state\sub-10\sub-10\ses-02')
-npy_to_mat('G:\Resting state\sub-10\sub-10\ses-03\eeg_resting_state_1.npy', 'G:\Resting state\sub-10\sub-10\ses-03')
-npy_to_mat('G:\Resting state\sub-10\sub-10\ses-04\eeg_resting_state_1.npy', 'G:\Resting state\sub-10\sub-10\ses-04')
-#%%
-npy_to_mat('G:\Resting state\sub-01\sub-01\ses-03\eeg_resting_state_1.npy', 'G:\Resting state\sub-01\sub-01\ses-03')
-#%%
-#%%
 
-import numpy as np
-import scipy.io as sio
-import os
+npy_to_mat('G:\Resting state\sub-01\sub-01\ses-01\eeg_resting_state_1.npy', 'G:\Resting state\sub-01\sub-01\ses-03')
+npy_to_mat('G:\Resting state\sub-01\sub-01\ses-01\eeg_resting_state_1.npy', 'G:\Resting state\sub-01\sub-01\ses-04')
+npy_to_mat('G:\Resting state\sub-07\sub-07\ses-07\eeg_resting_state_1.npy', 'G:\Resting state\sub-07\sub-07\ses-02')
+npy_to_mat('G:\Resting state\sub-07\sub-07\ses-07\eeg_resting_state_1.npy', 'G:\Resting state\sub-07\sub-07\ses-03')
+npy_to_mat('G:\Resting state\sub-08\sub-08\ses-08\eeg_resting_state_1.npy', 'G:\Resting state\sub-08\sub-08\ses-04')
+npy_to_mat('G:\Resting state\sub-08\sub-08\ses-08\eeg_resting_state_1.npy', 'G:\Resting state\sub-08\sub-08\ses-02')
+## convert the data similarly for all sessions in these subjects
+
 
 def convert_mat_field_to_npy(mat_file_path, field_name, output_npy_path=None):
     """
@@ -80,15 +70,3 @@ def convert_mat_field_to_npy(mat_file_path, field_name, output_npy_path=None):
     print(f"Field '{field_name}' successfully saved to {output_npy_path}")
     
     return field_data
-#%%
-# Example usage
-if __name__ == "__main__":
-    # Replace these with your actual paths and field name
-    mat_file = "G:/Resting state/sub-07/averaged_gedbounds.mat"
-    field_to_extract = "evecs"
-    
-    # Convert the field
-    extracted_data = convert_mat_field_to_npy(mat_file, field_to_extract)
-
-#%%
-m = np.load('G:/Resting state/sub-07/averaged_gedbounds_evecs.npy')
