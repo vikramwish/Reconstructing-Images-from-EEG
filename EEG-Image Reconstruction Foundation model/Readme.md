@@ -1,0 +1,52 @@
+
+
+1. create a python  conda  environment
+Use the environment.yaml for this.  This was created according to our system specifications.
+```
+Used python 3. 9.2
+
+2. Download data from https://huggingface.co/datasets/Alljoined/Alljoined-1.6M and https://openneuro.org/datasets/ds005106/versions/1.5.0
+
+Then unzip the files
+
+```
+python3 preprocessing.py 
+```
+3. Phase 1
+
+```
+CUDA_VISBILE_DEVICES=0,1,2,3 python3 stage1_harmonise.py --datasets [dataset path] --output_dir [output path]
+```
+
+4. Phase 2
+```
+CUDA_VISBILE_DEVICES=0,1,2,3 python3 stage2_eeg_vit.py --output_dir [output path]
+```
+
+5. Phase 3 - Get access to DINOv3 model from - https://huggingface.co/facebook/dinov3-vitb16-pretrain-lvd1689m to download it 
+```
+python3 stage3_alignment.py
+
+a. Get the embeddings : 
+
+python3 extract_stage3.py               
+
+```
+6. Phase 4 - Reconstruction 
+```
+CUDA_VISIBLE_DEVICES=4 python3 stage4_reconstruct.py --image_dir [your image_path] --output_path [result path]
+```
+
+
+
+# Citation
+
+1. Xu, J., Nunes, U. B., Jiang, W., Ryther, S., Pringle, J., Scotti, P. S., ... & Kneeland, R. (2025). Alljoined-1.6 M: A Million-Trial EEG-Image Dataset for Evaluating Affordable Brain-Computer Interfaces.
+
+2. Tijl Grootswagers, Genevieve Quek, Zhen Zeng, Manuel Varlet. 2025. “Human Infant EEG Recordings for 200 Object Images Presented in Rapid Visual Streams.” Scientific Data.
+
+3. https://huggingface.co/facebook/dinov3-vitb16-pretrain-lvd1689m
+
+
+
+
