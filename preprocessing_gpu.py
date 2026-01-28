@@ -92,7 +92,7 @@ def process_single_subject(args: Tuple) -> Dict:
 
     # Import heavy libraries only in worker process to save memory
     #from prep_alljoined import AllJoinedPreprocessor, AllJoinedConfig, GlobalPreprocessingConfig
-    from all import AllJoinedPreprocessor, AllJoinedConfig, GlobalPreprocessingConfig
+    from preprocess_all import AllJoinedPreprocessor, AllJoinedConfig, GlobalPreprocessingConfig
     import warnings
     warnings.filterwarnings('ignore')
 
