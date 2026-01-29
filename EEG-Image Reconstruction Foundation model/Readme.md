@@ -4,31 +4,33 @@ Use the environment.yaml for this. We created it according to our system specifi
 
 2. Download data from https://huggingface.co/datasets/Alljoined/Alljoined-1.6M and https://openneuro.org/datasets/ds005106/versions/1.5.0
 
-- Then unzip the files. 
-- Run the below file
- python3 preprocessing.py 
+- Unzip the files. 
+- Run the file
+```
+CUDA_VISBILE_DEVICES=0,1,2,3 python3 preprocessing.py --subjects 1-20
 
+```
 3. For Phase 1,
-
-CUDA_VISBILE_DEVICES=0,1,2,3 python3 stage1_harmonise.py --datasets [dataset path] --output_dir [output path]
-
+```
+CUDA_VISBILE_DEVICES=0,1,2,3 python3 stage1_harmonise.py --datasets [dataset path] --output_dir [output path] num_subjects 20 
+```
 4. For Phase 2
-
+```
 CUDA_VISBILE_DEVICES=0,1,2,3 python3 stage2_eeg_vit.py --output_dir [output path]
-
-5. a.  For Phase 3 - Get access to DINOv3 model from - https://huggingface.co/facebook/dinov3-vitb16-pretrain-lvd1689m and download it 
-
+```
+5. For Phase 3 - Get access to DINOv3 model from - https://huggingface.co/facebook/dinov3-vitb16-pretrain-lvd1689m and download it 
+```
 python3 stage3_alignment.py
-
-b. Extract the embeddings from trained aligned model 
-
+```
+6. Extract the embeddings from trained aligned model 
+```
 python3 extract_stage3.py               
+```
 
-
-6. For Phase 4 - Reconstruction 
-
+7. For Phase 4 - Reconstruction 
+```
 CUDA_VISIBLE_DEVICES=4 python3 stage4_reconstruct.py --image_dir [your image_path] --output_path [result path]
-
+```
 
 
 # Citation
