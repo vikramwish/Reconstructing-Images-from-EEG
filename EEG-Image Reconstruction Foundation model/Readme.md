@@ -1,17 +1,13 @@
 
-
-1. create a python  conda  environment
-Use the environment.yaml for this.  This was created according to our system specifications.
-```
-Used python 3. 9.2
+1. Create a Python Conda (3. 9.2) environment. 
+Use the environment.yaml for this. We created it according to our system specifications.
 
 2. Download data from https://huggingface.co/datasets/Alljoined/Alljoined-1.6M and https://openneuro.org/datasets/ds005106/versions/1.5.0
 
-Then unzip the files
-
+Then unzip the files 
 ```
 python3 preprocessing.py 
-```
+
 3. Phase 1
 
 ```
@@ -23,7 +19,7 @@ CUDA_VISBILE_DEVICES=0,1,2,3 python3 stage1_harmonise.py --datasets [dataset pat
 CUDA_VISBILE_DEVICES=0,1,2,3 python3 stage2_eeg_vit.py --output_dir [output path]
 ```
 
-5. Phase 3 - Get access to DINOv3 model from - https://huggingface.co/facebook/dinov3-vitb16-pretrain-lvd1689m to download it 
+5. Phase 3 - Get access to DINOv3 model from - https://huggingface.co/facebook/dinov3-vitb16-pretrain-lvd1689m and download it 
 ```
 python3 stage3_alignment.py
 
