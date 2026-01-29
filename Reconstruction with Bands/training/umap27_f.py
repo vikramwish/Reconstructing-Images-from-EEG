@@ -1,3 +1,5 @@
+###plot 3d umap
+
 import umap
 import numpy as np
 import matplotlib.pyplot as plt
@@ -170,7 +172,7 @@ def match_labels_to_categories(test_labels, word_to_category, uniqueid_to_catego
                     matched = True
                     break
 
-        # Third try: if not matched with Words, try uniqueID
+       
         if not matched:
             if label in uniqueid_to_category:
                 matched_categories.append(uniqueid_to_category[label])
@@ -184,7 +186,7 @@ def match_labels_to_categories(test_labels, word_to_category, uniqueid_to_catego
                         matched = True
                         break
 
-        # If still not matched, mark as unknown
+     
         if not matched:
             matched_categories.append('unknown')
             unmatched_words.append(label)
@@ -1172,4 +1174,4 @@ print(f"    • {save_base_path}/detailed_category_analysis.csv")
 print(f"    • {save_base_path}/frequency_vs_quality_analysis.png")
 
 print(f"\n All visualizations completed successfully!")
-print(f"🎨 All {len(unique_categories)} categories have unique, distinct colors using {method}")
+print(f" All {len(unique_categories)} categories have unique, distinct colors using {method}")
