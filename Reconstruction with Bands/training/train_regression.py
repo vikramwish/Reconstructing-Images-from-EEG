@@ -28,17 +28,11 @@ else:
 if duration != 0:
     eeg_train = np.load(f'/mnt/data12_16T/tanaya/data/eeg_dataset/higamma/sub-{sub:02d}/train_thingseeg2_avg.npy')[:train_size,:,:duration]
     eeg_test = np.load(f'/mnt/data12_16T/tanaya/data/eeg_dataset/higamma/sub-{sub:02d}/test_thingseeg2_avg{average}.npy')[:,:,:duration]
-    #eeg_train = np.load(f'/mnt/data12_16T/tanaya/data/eeg_dataset/exp_3e/sub-{sub:02d}/train_eeg_features_3ch_zero_pad_avg_sub08.npz')[:train_size,:,:duration]
-    #eeg_test = np.load(f'/mnt/data12_16T/tanaya/data/eeg_dataset/exp_3e/sub-{sub:02d}/test_eeg_features_3ch_zero_pad_avg_sub08.npz')[:,:,:duration]
+  
 else:
     eeg_train = np.load(f'/mnt/data12_16T/tanaya/data/eeg_dataset/higamma/sub-{sub:02d}/train_thingseeg2_avg_null.npy')[:train_size]
     eeg_test = np.load(f'/mnt/data12_16T/tanaya/data/eeg_dataset/higamma/sub-{sub:02d}/test_thingseeg2_avg{average}_null.npy')
-#     eeg_train = np.load(
-#         f'/mnt/data12_16T/tanaya/data/eeg_dataset/exp_3e/fine_tuned/sub-08/features/train_features_original_shape.npy')[:train_size,:,:duration]
-#     eeg_test = np.load(
-#         f'/mnt/data12_16T/tanaya/data/eeg_dataset/exp_3e/fine_tuned/sub-08/features/test_features_original_shape.npy')[:,:,:duration]
-#
-# print(eeg_train.shape, eeg_test.shape)
+
 eeg_train1 = eeg_train.mean(axis=1)
 eeg_test1 = eeg_test.mean(axis=1)
 eeg_test = eeg_test1.reshape(eeg_test1.shape[0],-1)
