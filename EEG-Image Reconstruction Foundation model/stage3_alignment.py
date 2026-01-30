@@ -49,7 +49,7 @@ from transformers import CLIPProcessor, CLIPModel
 
 # Import the EEGViTCNet from your eeg_vit.py
 try:
-    from eeg_vit import EEGViTCNetSelfAware, EEGViTCNetConfig
+    from stage2_eeg_vit import EEGViTCNetSelfAware, EEGViTCNetConfig
 except ImportError as e:
     print(f"Warning: Could not import EEG model classes: {e}")
     print("Make sure eeg_vit.py is in your Python path")
