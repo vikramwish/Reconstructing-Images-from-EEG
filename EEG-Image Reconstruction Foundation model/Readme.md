@@ -1,5 +1,5 @@
 
-1. Create a Python Conda (3. 9.2) environment. 
+1. Create a Python Conda (3.9.2) environment. 
 Use the environment.yaml for this. We created it according to our system specifications.
 
 2. Download data from https://huggingface.co/datasets/Alljoined/Alljoined-1.6M and https://openneuro.org/datasets/ds005106/versions/1.5.0
@@ -33,13 +33,15 @@ CUDA_VISIBLE_DEVICES=4 python3 stage4_reconstruct.py --image_dir [your image_pat
 ```
 
 
-# Citation
+## Code adapted from the following sources:
 
-1. Xu, J., Nunes, U. B., Jiang, W., Ryther, S., Pringle, J., Scotti, P. S., ... & Kneeland, R. (2025). Alljoined-1.6 M: A Million-Trial EEG-Image Dataset for Evaluating Affordable Brain-Computer Interfaces.
+1. Xu, J., Nunes, U. B., Jiang, W., Ryther, S., Pringle, J., Scotti, P. S., ... & Kneeland, R. (2025). Alljoined-1.6 M: A Million-Trial EEG-Image Dataset for Evaluating Affordable Brain-Computer Interfaces. https://github.com/Alljoined/Alljoined-1.6M.
 
 2. Tijl Grootswagers, Genevieve Quek, Zhen Zeng, Manuel Varlet. 2025. “Human Infant EEG Recordings for 200 Object Images Presented in Rapid Visual Streams.” Scientific Data.
 
-3. https://huggingface.co/facebook/dinov3-vitb16-pretrain-lvd1689m
+3. https://huggingface.co/facebook/dinov3-vitb16-pretrain-lvd1689m.
+4. https://github.com/facebookresearch/dinov3.
+5. https://github.com/CompVis/latent-diffusion.
 
 
 
